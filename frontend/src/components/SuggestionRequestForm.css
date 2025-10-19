@@ -1,0 +1,156 @@
+.suggestion-request-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background: var(--background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.suggestion-request-form h2 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.suggestion-request-form .error-banner {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: var(--border-radius);
+  color: #c00;
+  font-weight: 500;
+}
+
+.suggestion-request-form .form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.suggestion-request-form .form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.suggestion-request-form .form-group .required {
+  color: var(--error, #d32f2f);
+}
+
+.suggestion-request-form .form-group input,
+.suggestion-request-form .form-group select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.suggestion-request-form .form-group input:focus,
+.suggestion-request-form .form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.suggestion-request-form .form-group input[aria-invalid="true"],
+.suggestion-request-form .form-group select[aria-invalid="true"] {
+  border-color: var(--error, #d32f2f);
+}
+
+.suggestion-request-form .error-message {
+  display: block;
+  margin-top: var(--spacing-xs);
+  color: var(--error, #d32f2f);
+  font-size: 0.85rem;
+}
+
+.suggestion-request-form .form-hint {
+  display: block;
+  margin-top: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.suggestion-request-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .suggestion-request-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.suggestion-request-form .form-timezone-info {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  background: var(--background-secondary);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.suggestion-request-form .form-timezone-info small {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.suggestion-request-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.suggestion-request-form .btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.suggestion-request-form .btn:hover {
+  transform: translateY(-1px);
+}
+
+.suggestion-request-form .btn:active {
+  transform: translateY(0);
+}
+
+.suggestion-request-form .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.suggestion-request-form .btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.suggestion-request-form .btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-dark, #1565c0);
+}
+
+.suggestion-request-form .btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.suggestion-request-form .btn-secondary:hover:not(:disabled) {
+  background-color: var(--background-secondary);
+}

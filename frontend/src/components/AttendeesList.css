@@ -1,0 +1,198 @@
+.attendee-list-container {
+  background-color: var(--background-secondary, #f8f9fa);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.attendee-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border, #e1e4e8);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.15s ease;
+}
+
+.attendee-item:last-child {
+  border-bottom: none;
+}
+
+.attendee-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.attendee-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.attendee-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.attendee-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attendee-status {
+  font-size: 12px;
+  color: var(--text-secondary, #70757a);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-indicator.status-accepted {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.status-indicator.status-declined {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.status-indicator.status-pending {
+  background-color: #fef7e0;
+  color: #ea8600;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-accepted {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.status-declined {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.status-pending {
+  background-color: #fef7e0;
+  color: #ea8600;
+}
+
+.organizer-badge {
+  background-color: var(--primary, #1a73e8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Loading animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary, #1a73e8);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Invitation action buttons - Google Calendar Style */
+.invitation-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-accept,
+.btn-decline {
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+  min-height: 36px;
+  min-width: 90px;
+}
+
+.btn-accept {
+  background-color: #34a853;
+  color: white;
+  border-color: #34a853;
+}
+
+.btn-accept:hover:not(:disabled) {
+  background-color: #2d9348;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-accept:active:not(:disabled) {
+  background-color: #188038;
+  transform: translateY(0);
+}
+
+.btn-decline {
+  background-color: white;
+  color: #5f6368;
+  border-color: #dadce0;
+}
+
+.btn-decline:hover:not(:disabled) {
+  background-color: #f8f9fa;
+  border-color: #bdc1c6;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-decline:active:not(:disabled) {
+  background-color: #f1f3f4;
+  transform: translateY(0);
+}
+
+.btn-accept:disabled,
+.btn-decline:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-accept:focus-visible,
+.btn-decline:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}

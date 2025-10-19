@@ -1,0 +1,116 @@
+services:
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: calendar-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: calendardb
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-changeme}
+      MYSQL_USER: calendaruser
+      MYSQL_PASSWORD: ${DB_PASSWORD:-changeme}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - calendar-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache (optional - uncomment to enable)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: calendar-redis
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   networks:
+  #     - calendar-network
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 3s
+  #     retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: calendar-backend
+    restart: unless-stopped
+    ports:
+      - "8443:8443"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/calendardb?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: calendaruser
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-changeme}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES:-prod}
+      
+      # Google OAuth (set these in .env file)
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      
+      # Redis (uncomment if using Redis)
+      # SPRING_DATA_REDIS_HOST: redis
+      # SPRING_DATA_REDIS_PORT: 6379
+      # APP_CACHE_REDIS_ENABLED: true
+      
+      # SMTP Email (optional)
+      # SPRING_MAIL_HOST: smtp.gmail.com
+      # SPRING_MAIL_PORT: 587
+      # SPRING_MAIL_USERNAME: ${SMTP_USERNAME}
+      # SPRING_MAIL_PASSWORD: ${SMTP_PASSWORD}
+      # SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH: true
+      # SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE: true
+      
+      # JVM Options
+      JAVA_OPTS: -Xmx512m -Xms256m
+    depends_on:
+      db:
+        condition: service_healthy
+      # redis:
+      #   condition: service_healthy
+    networks:
+      - calendar-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8443/actuator/health", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: calendar-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - calendar-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/", "||", "exit", "1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+networks:
+  calendar-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+  # redis-data:
+  #   driver: local

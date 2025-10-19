@@ -1,0 +1,151 @@
+{
+  "translation": {
+    "app": {
+      "name": "Calendar Application",
+      "tagline": "Manage your schedule with ease"
+    },
+    "auth": {
+      "login": "Login",
+      "loginWithGoogle": "Login with Google",
+      "logout": "Logout",
+      "loggingIn": "Logging in...",
+      "unauthorized": "Unauthorized access"
+    },
+    "nav": {
+      "calendar": "Calendar",
+      "invitations": "Invitations",
+      "import": "Import",
+      "settings": "Settings"
+    },
+    "calendar": {
+      "title": "My Calendar",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "newEvent": "New Event",
+      "noEvents": "No events scheduled",
+      "loading": "Loading events..."
+    },
+    "event": {
+      "title": "Title",
+      "description": "Description",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "location": "Location",
+      "participants": "Participants",
+      "create": "Create Event",
+      "update": "Update Event",
+      "delete": "Delete Event",
+      "cancel": "Cancel",
+      "save": "Save",
+      "videoConference": "Video Conference",
+      "timezone": "Timezone",
+      "recurrence": "Recurrence",
+      "addParticipant": "Add Participant",
+      "removeParticipant": "Remove Participant"
+    },
+    "invitations": {
+      "title": "My Invitations",
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "declined": "Declined",
+      "proposed": "Proposed",
+      "superseded": "Superseded",
+      "accept": "Accept",
+      "decline": "Decline",
+      "proposeNewTime": "Propose New Time",
+      "noInvitations": "No invitations",
+      "loading": "Loading invitations...",
+      "respondedAt": "Responded at",
+      "note": "Note",
+      "addNote": "Add Note",
+      "proposedTime": "Proposed Time",
+      "acceptProposal": "Accept Proposal",
+      "rejectProposal": "Reject Proposal"
+    },
+    "import": {
+      "title": "Import Calendar",
+      "selectFile": "Select ICS File",
+      "upload": "Upload",
+      "importing": "Importing...",
+      "success": "Successfully imported {{count}} events",
+      "error": "Import failed",
+      "duplicates": "{{count}} duplicates skipped",
+      "dragDrop": "Drag and drop ICS file here"
+    },
+    "availability": {
+      "title": "Check Availability",
+      "participants": "Participants",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "duration": "Duration (minutes)",
+      "checkAvailability": "Check Availability",
+      "suggestions": "Suggested Times",
+      "noSuggestions": "No available time slots found",
+      "freeBusy": "Free/Busy Information"
+    },
+    "proposals": {
+      "title": "Time Proposals",
+      "proposedBy": "Proposed by",
+      "proposedTime": "Proposed Time",
+      "reason": "Reason",
+      "acceptConfirm": "Accept this time proposal? This will update the event time and supersede other proposals.",
+      "rejectReason": "Reason for rejection (optional)",
+      "accepted": "Proposal accepted successfully",
+      "rejected": "Proposal rejected",
+      "noProposals": "No time proposals yet"
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidDate": "Invalid date",
+      "endBeforeStart": "End time must be after start time",
+      "networkError": "Network error. Please try again.",
+      "serverError": "Server error. Please try again later.",
+      "notFound": "Resource not found",
+      "unauthorized": "You are not authorized to perform this action",
+      "validationError": "Please check your input"
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "Error",
+      "success": "Success",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "save": "Save",
+      "delete": "Delete",
+      "edit": "Edit",
+      "close": "Close",
+      "back": "Back",
+      "next": "Next",
+      "previous": "Previous",
+      "search": "Search",
+      "filter": "Filter",
+      "sort": "Sort",
+      "refresh": "Refresh",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "dates": {
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "yesterday": "Yesterday",
+      "thisWeek": "This Week",
+      "nextWeek": "Next Week",
+      "lastWeek": "Last Week",
+      "thisMonth": "This Month",
+      "nextMonth": "Next Month",
+      "lastMonth": "Last Month"
+    },
+    "notifications": {
+      "eventCreated": "Event created successfully",
+      "eventUpdated": "Event updated successfully",
+      "eventDeleted": "Event deleted successfully",
+      "invitationSent": "Invitation sent",
+      "invitationAccepted": "Invitation accepted",
+      "invitationDeclined": "Invitation declined",
+      "proposalSubmitted": "Time proposal submitted",
+      "importComplete": "Import completed"
+    }
+  }
+}

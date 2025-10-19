@@ -1,0 +1,552 @@
+/* Google Calendar Style Variables */
+:root {
+  --google-blue: #1a73e8;
+  --google-blue-hover: #1557b0;
+  --google-gray-50: #f8f9fa;
+  --google-gray-100: #f1f3f4;
+  --google-gray-200: #e8eaed;
+  --google-gray-300: #dadce0;
+  --google-gray-400: #bdc1c6;
+  --google-gray-500: #9aa0a6;
+  --google-gray-600: #80868b;
+  --google-gray-700: #5f6368;
+  --google-gray-800: #3c4043;
+  --google-gray-900: #202124;
+  --google-orange: #e8710a;
+  --google-green: #34a853;
+  --google-red: #ea4335;
+  --header-height: 64px;
+}
+
+/* Invitations Page - Google Calendar Style */
+.invitations-page {
+  min-height: 100vh;
+  background-color: var(--google-gray-50);
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+}
+
+.invitations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Header */
+.page-header {
+  background-color: white;
+  border-bottom: 1px solid var(--google-gray-200);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-bottom: 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--google-gray-700);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+
+.back-link:hover {
+  color: var(--google-blue);
+}
+
+.back-link .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--google-blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.title-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.header-title h1 {
+  color: var(--google-gray-800);
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: white;
+  color: var(--google-gray-700);
+  border: 1px solid var(--google-gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background-color: var(--google-gray-50);
+  border-color: var(--google-gray-400);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.refresh-btn .icon.spinning {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  background-color: white;
+  border-bottom: 1px solid var(--google-gray-200);
+  overflow-x: auto;
+}
+
+.filter-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--google-gray-700);
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'Google Sans', 'Roboto', sans-serif;
+}
+
+.filter-tab:hover {
+  background-color: var(--google-gray-100);
+}
+
+.filter-tab.active {
+  background-color: var(--google-blue);
+  color: white;
+}
+
+.count-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.filter-tab:not(.active) .count-badge {
+  background-color: var(--google-gray-100);
+  color: var(--google-gray-700);
+}
+
+/* Invitations List */
+.invitations-list {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+/* Invitation Card */
+.invitation-card {
+  background: white;
+  border: 1px solid var(--google-gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.invitation-card:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 12px 4px rgba(60, 64, 67, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--google-gray-100);
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.02) 0%, rgba(52, 168, 83, 0.02) 100%);
+}
+
+.event-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.event-title {
+  color: var(--google-gray-900);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.status-pending {
+  background-color: #fef7e0;
+  color: var(--google-orange);
+}
+
+.status-accepted {
+  background-color: #e6f4ea;
+  color: var(--google-green);
+}
+
+.status-declined {
+  background-color: #fce8e6;
+  color: var(--google-red);
+}
+
+.status-proposed {
+  background-color: #e8f0fe;
+  color: var(--google-blue);
+}
+
+.card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Event Details */
+.event-details {
+  margin: 0;
+  padding: 12px;
+  background-color: var(--google-gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--google-gray-100);
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-icon {
+  flex-shrink: 0;
+  color: var(--google-gray-600);
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.detail-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-primary {
+  color: var(--google-gray-900);
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.detail-secondary {
+  color: var(--google-gray-600);
+  font-size: 13px;
+  margin: 0;
+  margin-top: 2px;
+}
+
+/* Event Description */
+.event-description {
+  background-color: var(--google-gray-50);
+  border-left: 3px solid var(--google-blue);
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.event-description p {
+  color: var(--google-gray-700);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Response Section */
+.response-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--google-gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  background-color: var(--google-gray-50);
+  border-top: 1px solid var(--google-gray-100);
+  font-size: 11px;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--google-gray-600);
+  font-weight: 400;
+}
+
+.footer-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Loading State */
+.loading-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton-card {
+  background: white;
+  border: 1px solid var(--google-gray-200);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.skeleton-title {
+  height: 18px;
+  background: linear-gradient(90deg, var(--google-gray-100) 25%, var(--google-gray-50) 50%, var(--google-gray-100) 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  width: 70%;
+  margin-bottom: 12px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: linear-gradient(90deg, var(--google-gray-100) 25%, var(--google-gray-50) 50%, var(--google-gray-100) 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-line.short {
+  width: 50%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Error State */
+.error-state {
+  background: #fce8e6;
+  border: 1px solid var(--google-red);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 24px;
+  text-align: center;
+  color: var(--google-red);
+  font-size: 14px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 64px 32px;
+  background: white;
+  border-radius: 8px;
+  margin: 24px;
+  border: 1px solid var(--google-gray-200);
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  color: var(--google-gray-400);
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  color: var(--google-gray-800);
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: var(--google-gray-600);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 12px 16px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-title h1 {
+    font-size: 20px;
+  }
+
+  .refresh-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filter-tabs {
+    padding: 12px 16px;
+    gap: 6px;
+  }
+
+  .invitations-list {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .event-title-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-badge {
+    align-self: flex-start;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    gap: 8px;
+  }
+
+  .title-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .title-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-title h1 {
+    font-size: 18px;
+  }
+
+  .event-title {
+    font-size: 15px;
+  }
+
+  .card-header,
+  .card-body {
+    padding: 16px;
+  }
+
+  .card-footer {
+    padding: 12px 16px;
+  }
+}

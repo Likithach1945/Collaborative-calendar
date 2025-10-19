@@ -1,0 +1,6 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Test Calendar//EN
+This is not valid ICS format
+Missing VEVENT
+END:VCALENDAR

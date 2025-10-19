@@ -1,0 +1,213 @@
+/* Modern Event Card Styles */
+.event-card-modern {
+  background-color: var(--google-blue);
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 2px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  line-height: 1.3;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-card-modern:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.3);
+  z-index: 10;
+}
+
+.event-card-modern:focus {
+  outline: 2px solid var(--google-blue);
+  outline-offset: 2px;
+}
+
+/* Event Categories */
+.event-personal {
+  background-color: var(--google-blue);
+  border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-work {
+  background-color: var(--google-orange);
+  border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-meeting {
+  background-color: var(--google-green);
+  border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-reminder {
+  background-color: var(--google-red);
+  border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-holiday {
+  background-color: #9c27b0;
+  border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Event Content */
+.event-card-content {
+  width: 100%;
+}
+
+.event-title {
+  font-weight: 500;
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-time {
+  font-size: 11px;
+  opacity: 0.9;
+  margin-bottom: 2px;
+}
+
+/* Simple Card for Week and Day Views */
+.event-card-modern.simple-card {
+  padding: 2px 4px;
+  height: 100%;
+  margin: 0;
+  border-radius: 2px;
+}
+
+.simple-card .event-title {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.simple-card .event-time {
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+.event-location {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-bottom: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-video {
+  font-size: 10px;
+  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 1px 4px;
+  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.video-icon {
+  margin-right: 3px;
+}
+
+/* All-day events */
+.event-card-modern.all-day {
+  background-color: var(--google-blue);
+  border-radius: 12px;
+  padding: 4px 12px;
+  display: inline-block;
+  margin: 2px 4px 2px 0;
+  border-left: none;
+}
+
+.event-card-modern.all-day.event-work {
+  background-color: var(--google-orange);
+}
+
+.event-card-modern.all-day.event-meeting {
+  background-color: var(--google-green);
+}
+
+.event-card-modern.all-day.event-reminder {
+  background-color: var(--google-red);
+}
+
+/* Busy/Free indicators */
+.event-card-modern.busy::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.event-card-modern.tentative {
+  opacity: 0.7;
+  border-style: dashed;
+}
+
+/* Multi-day events */
+.event-card-modern.multi-day {
+  border-radius: 0;
+}
+
+.event-card-modern.multi-day.first-day {
+  border-radius: 4px 0 0 4px;
+}
+
+.event-card-modern.multi-day.last-day {
+  border-radius: 0 4px 4px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .event-card-modern {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+  
+  .event-time {
+    font-size: 10px;
+  }
+  
+  .event-location,
+  .event-video {
+    font-size: 9px;
+  }
+}
+
+/* Animation for new events */
+@keyframes eventAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-card-modern.new-event {
+  animation: eventAppear 0.3s ease-out;
+}
+
+/* Focus and accessibility */
+.event-card-modern:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+/* Print styles */
+@media print {
+  .event-card-modern {
+    background-color: transparent !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}

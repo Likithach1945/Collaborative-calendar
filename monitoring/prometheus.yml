@@ -1,0 +1,32 @@
+# Prometheus Configuration for Calendar Application
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Spring Boot Actuator Metrics
+  - job_name: 'calendar-backend'
+    static_configs:
+      - targets: ['backend:8444']
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # MySQL Exporter (if you add mysql_exporter)
+  # - job_name: 'mysql'
+  #   static_configs:
+  #     - targets: ['mysql-exporter:9104']
+
+  # Redis Exporter (if you add redis_exporter)
+  # - job_name: 'redis'
+  #   static_configs:
+  #     - targets: ['redis-exporter:9121']
+
+  # Nginx Exporter (if you add nginx_exporter)
+  # - job_name: 'nginx'
+  #   static_configs:
+  #     - targets: ['nginx-exporter:9113']

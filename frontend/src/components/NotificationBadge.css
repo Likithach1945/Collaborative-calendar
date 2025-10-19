@@ -1,0 +1,52 @@
+.notification-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  position: relative;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+.notification-pending {
+  background-color: var(--google-orange, #e8710a);
+  color: white;
+}
+
+.notification-error {
+  background-color: var(--google-red, #ea4335);
+  color: white;
+}
+
+.notification-warning {
+  background-color: #fbbc04;
+  color: #202124;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 113, 10, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(232, 113, 10, 0);
+  }
+}
+
+/* Icon wrapper for badge (use with position: relative parent) */
+.notification-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.notification-icon-wrapper .notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  animation: none;
+}

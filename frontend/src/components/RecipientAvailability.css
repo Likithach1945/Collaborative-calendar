@@ -1,0 +1,239 @@
+/* Recipient Availability Component */
+
+.recipient-availability-container {
+  background: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.availability-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.availability-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.availability-summary {
+  margin-left: auto;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.availability-summary.all-available {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.availability-summary.has-conflicts {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.availability-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.availability-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  background: var(--background);
+  transition: all 0.2s ease;
+}
+
+.availability-item.available {
+  border-left: 3px solid #188038;
+  background: #f1f8f4;
+}
+
+.availability-item.conflict {
+  border-left: 3px solid #d33b27;
+  background: #fef1ef;
+}
+
+.availability-item.missing {
+  border-left: 3px solid #5f6368;
+  background: #f5f5f5;
+}
+
+.availability-suggestions {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #f4f8ff;
+  border: 1px solid rgba(26, 115, 232, 0.18);
+  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.08);
+}
+
+.availability-suggestions__title {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--google-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.availability-suggestions__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.availability-suggestions__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.availability-suggestions__icon {
+  color: var(--google-blue);
+}
+
+.availability-suggestions__empty {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--google-gray-700);
+}
+
+.availability-suggestions__not-found {
+  color: #5f6368;
+}
+
+.recipient-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status-icon {
+  flex-shrink: 0;
+}
+
+.status-icon.available {
+  color: #188038;
+}
+
+.status-icon.conflict {
+  color: #d33b27;
+}
+
+.status-icon.missing {
+  color: #5f6368;
+}
+
+.recipient-name {
+  flex: 1;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-label {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.availability-item.available .status-label {
+  color: #188038;
+}
+
+.availability-item.conflict .status-label {
+  color: #d33b27;
+}
+
+.availability-item.missing .status-label,
+.status-label.missing-label {
+  color: #5f6368;
+}
+
+.availability-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px;
+  background: #fef1ef;
+  border: 1px solid #f9dedc;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #c5221f;
+}
+
+.availability-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.availability-note p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.availability-error {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin: 0;
+  padding: 8px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 0.8s linear infinite;
+  margin: 8px 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .availability-header {
+    flex-wrap: wrap;
+  }
+
+  .availability-summary {
+    margin-left: 0;
+    flex-basis: 100%;
+    margin-top: 8px;
+  }
+
+  .availability-suggestions {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Calendar App</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    .offline-container {
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <h1>You're Offline</h1>
+    <p>You can still view cached events. Some features may be unavailable.</p>
+    <button onclick="window.location.reload()">Try Again</button>
+  </div>
+</body>
+</html>
