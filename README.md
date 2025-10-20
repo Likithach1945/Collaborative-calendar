@@ -66,9 +66,6 @@ A modern, full-stack calendar and event management application built with **Reac
    - Backend API: http://localhost:8443
    - Health: http://localhost:8443/actuator/health
 
-See [Docker Deployment Guide](docs/DOCKER-DEPLOYMENT.md) for detailed instructions.
-
-See [Docker Deployment Guide](docs/DOCKER-DEPLOYMENT.md) for detailed instructions.
 
 #### Frontend Setup
 
